@@ -6,28 +6,27 @@ const NewTask = ({ data}) => {
 
        const [userData,setUserData] = useContext(AuthContext)
 
-       const handleAccept=()=>{
-        const updatedUser=userData.map((user)=>{
-        if(user.tasks.some((task)=> task.title===data.title ))
-        {
-            user.tasks=user.tasks.map((task)=>{
-                if(task.title===data.title)
-               {
-                task.NewTask=false;
-                task.active=true;
-                }
-                return task
+       const handleAccept = () => {
+        const updatedEmployees = userData.map((employee) => {
+            if (employee.tasks.some((task) => task.title === data.title)) {
+                employee.tasks = employee.tasks.map((task) => {
+                    if (task.title === data.title) {
+                        task.active = true;
+                        task.newTask = false;  
+                    }
+                    return task;
+                });
 
-            })
-            user.taskCount.NewTask-=1;
-            user.taskCount.AcceptTask+=1;
+                employee.taskCount.newTask -= 1;
+                employee.taskCount.active += 1;
+            }
+            return employee;
+        });
 
-        }
-        return user;
-    })
-    setUserData(updatedUser)
-    localStorage.setItem('employees', updatedUser)
-  }
+        setUserData(updatedEmployees);
+        localStorage.setItem("employees", JSON.stringify(updatedEmployees));
+    };
+
     return (
         <div className="p-6 mx-4 rounded-lg shadow-lg w-[300px] h-[350px] text-white bg-blue-500 flex flex-col justify-between flex-shrink-0">
             <div>

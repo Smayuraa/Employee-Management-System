@@ -9,7 +9,7 @@ const AuthProvider=({children})=>{
    const [userData, setUserData] = useState(null);
 
     useEffect(() => {
-        //localStorage.clear()
+        // localStorage.clear()
         let { employees } = getLocalStorage();
         
         if(employees == null){

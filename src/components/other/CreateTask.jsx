@@ -5,19 +5,19 @@ const CreateTask = () => {
   const [userData, setUserData] = useContext(AuthContext);
   
   // Task-related states
-  const [taskTitle, setTaskTitle] = useState('');
-  const [taskDescription, setTaskDescription] = useState('');
+  const [title, setTitle] = useState('');
+  const [description, setDescription] = useState('');
   const [category, setCategory] = useState('');
-  const [taskDate, setTaskDate] = useState('');
+  const [date, setDate] = useState('');
   const [assignTo, setAssignTo] = useState('');
 
   const submitHandler = (e) => {
     e.preventDefault();
 
     const newTask = {
-      taskTitle,
-      taskDescription,
-      taskDate,
+      title,
+      description,
+      date,
       category,
       active: false,
       newTask: true,
@@ -25,25 +25,21 @@ const CreateTask = () => {
       completed: false,
     };
     const updatedUserData = userData.map((user) => {
-      console.log(user)
       if (user.firstName === assignTo) {
         user.tasks.push(newTask);
         user.taskCount.newTask+=1;
-
-        };
-
-        
+      }
       return user;
     });
 
     setUserData(updatedUserData);
-    localStorage.setItem("employees",JSON.stringify(updatedUserData));
+    localStorage.setItem("employees", JSON.stringify(updatedUserData));
     
     // Clear form fields
-    setTaskTitle('');
-    setTaskDescription('');
+    setTitle('');
+    setDescription('');
     setCategory('');
-    setTaskDate('');
+    setDate('');
     setAssignTo('');
   };
 
@@ -54,8 +50,8 @@ const CreateTask = () => {
           <div>
             <h3 className='text-gray-300 mb-0.5'>Task Title</h3>
             <input
-              value={taskTitle}
-              onChange={(e) => setTaskTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               className='text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400'
               type="text"
               placeholder='Make a UI design'
@@ -64,10 +60,10 @@ const CreateTask = () => {
           <div>
             <h3 className='text-gray-300 mb-0.5'>Date</h3>
             <input
-              value={taskDate}
-              onChange={(e) => setTaskDate(e.target.value)}
-              className='text-[#CBC6C3] text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400'
               type="date"
+              value={date}
+              onChange={(e) => setDate(e.target.value)}
+              className='text-[#CBC6C3] text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400'
             />
           </div>
           <div>
@@ -94,8 +90,8 @@ const CreateTask = () => {
         <div className='w-1/2'>
           <h3 className='text-gray-300 mb-0.5'>Description</h3>
           <textarea
-            value={taskDescription}
-            onChange={(e) => setTaskDescription(e.target.value)}
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
             className='text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400'
           ></textarea>
           <button className='text-white w-9/12 ml-4 mt-4 text-base bg-emerald-600 border-2 border-emerald-600'>Create Task</button>

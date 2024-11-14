@@ -5,7 +5,6 @@ const AcceptTask = ({ data }) => {
     const [userData, setUserData] = useContext(AuthContext);
 
     const handleComplete = () => {
-        console.log(userData)
         const updatedEmployees = userData.map((employee) => {
             if (employee.tasks.some((task) => task.title === data.title)) {
                 employee.tasks = employee.tasks.map((task) => {
@@ -19,7 +18,6 @@ const AcceptTask = ({ data }) => {
                 employee.taskCount.completed += 1;
                 employee.taskCount.active -= 1;
             }
-            console.log(employee)
             return employee;
         });
 
