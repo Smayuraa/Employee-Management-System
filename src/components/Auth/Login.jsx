@@ -35,7 +35,7 @@ const Login = ({handleLogin}) => {
                             type="password"
                             placeholder="Enter your password"
                         />
-                        <button className="text-white mt-6 outline-none bg-emerald-600 border-none text-xl py-3 px-5 rounded-full placeholder:text-gray-400">
+                        <button className="text-white mt-6 outline-none bg-emerald-600 border-none text-xl py-3 px-10 rounded-full placeholder:text-gray-400">
                             Login
                         </button>
                     </form>

@@ -92,9 +92,9 @@ const CreateTask = () => {
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className='text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400'
+            className='text-sm py-1 px-1 w-4/5 rounded outline-none bg-transparent border-[1px] border-gray-400 h-36'
           ></textarea>
-          <button className='text-white w-9/12 ml-4 mt-4 text-base bg-emerald-600 border-2 border-emerald-600'>Create Task</button>
+          <button className='text-white w-4/5 mt-5 text-base bg-emerald-600 border-2 border-emerald-600 rounded'>Create Task</button>
         </div>
       </form>
     </div>
