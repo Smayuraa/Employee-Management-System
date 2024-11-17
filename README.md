@@ -55,4 +55,4 @@ The app stores data in *localStorage, ensuring that user data persists even when
 - *EmployeeList*: Lists all employees with their active task counts and task details.
 - *EmployeePage*: Detailed page for each employee, showing their tasks and status.
 
-  https://employeetrack.netlify.app/
+https://emptrack.netlify.app/
