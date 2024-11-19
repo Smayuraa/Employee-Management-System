@@ -54,3 +54,5 @@ The app stores data in *localStorage, ensuring that user data persists even when
 - *TaskCard*: Displays individual tasks and allows users to accept or reject tasks.
 - *EmployeeList*: Lists all employees with their active task counts and task details.
 - *EmployeePage*: Detailed page for each employee, showing their tasks and status.
+
+https://emptrack.netlify.app/
