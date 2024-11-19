@@ -19,26 +19,26 @@ const TaskList = ({ data }) => {
 
     return(
         <div
-            className="overflow-x-auto flex items-center pb-5 mt-10"
+            className="overflow-x-auto flex items-center pb-5 mt-10 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200"
             ref={scrollContainerRef}
             onWheel={handleScroll}
         >
             {employee.tasks.map((elem, idx) => {
                 if (elem.active) {
-                return <AcceptTask key={idx} data={elem} style={{ minWidth: "200px" }} />;
+                    return <AcceptTask key={idx} data={elem} style={{ minWidth: "250px" }} />;
                 }
                 if (elem.newTask) {
-                return <NewTask key={idx} data={elem} style={{ minWidth: "200px" }} />;
+                    return <NewTask key={idx} data={elem} style={{ minWidth: "250px" }} />;
                 }
                 if (elem.completed) {
-                return <CompleteTask key={idx} data={elem} style={{ minWidth: "200px" }} />;
+                    return <CompleteTask key={idx} data={elem} style={{ minWidth: "250px" }} />;
                 }
                 if (elem.failed) {
-                return <FailedTask key={idx} data={elem} style={{ minWidth: "200px" }} />;
+                    return <FailedTask key={idx} data={elem} style={{ minWidth: "250px" }} />;
                 }
                 return null;
             })}
-            </div>
+        </div>
     );
 };
 
